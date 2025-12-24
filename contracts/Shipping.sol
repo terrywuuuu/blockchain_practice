@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.4.25 <0.9.0;
 
 contract Shipping {
@@ -11,7 +12,7 @@ contract Shipping {
     event LogNewAlert(string description);
 
     // This initializes our contract state (sets enum to Pending once the program starts)
-    constructor() public {
+    constructor() {
         status = ShippingStatus.Pending;
     }
     
@@ -33,6 +34,7 @@ contract Shipping {
      if (ShippingStatus.Pending == _status) return "Pending";
      if (ShippingStatus.Shipped == _status) return "Shipped";
      if (ShippingStatus.Delivered == _status) return "Delivered";
+     return "Unknown"; // 預設值
     }
 
    // Get status of your shipped item
